@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding-top: 50px;
+}
+
+.organization-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.unit {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #eee;
+    text-align: center;
+    position: relative;
+}
+
+.top-level > .sub-units {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.second-level {
+    margin: 0 15px;
+}
+
+.second-level > .sub-units {
+    margin-top: 20px;
+}
+
+.third-level, .fourth-level {
+    margin: 5px 0;
+}
+
+.sub-units {
+    display: none; /* 預設隱藏子部門 */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 1px dashed #ccc;
+}
+
+.has-sub-units > .toggle {
+    cursor: pointer;
+    font-weight: bold;
+    padding-right: 15px;
+    position: relative;
+}
+
+.has-sub-units > .toggle::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+.has-sub-units.open > .toggle::after {
+    content: '-';
+}
+
+.has-sub-units.open > .sub-units {
+    display: flex; /* 展開時顯示子部門 */
+}
+
+.independent {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
